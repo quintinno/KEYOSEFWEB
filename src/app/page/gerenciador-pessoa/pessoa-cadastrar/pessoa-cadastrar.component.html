@@ -1,14 +1,30 @@
 <div class="card mb-3">
-    <div class="card-body">
-        <form>
+
+    <form (ngSubmit)="onCadastrarPessoa()" [formGroup]="pessoaFormulario">
+        <div class="card-body">
             <fieldset>
 
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a routerLink="/gerenciador-monitoramento">Monitoramento Financeiro</a>
-                    </li>
+                    <li class="breadcrumb-item"><a routerLink="/gerenciador-monitoramento">Monitoramento Financeiro</a></li>
                     <li class="breadcrumb-item"><a routerLink="/gerenciador-pessoa">Gerenciador de Pessoas</a></li>
                     <li class="breadcrumb-item active">Cadastro de Pessoas</li>
                 </ol>
+
+                <div *ngIf="isApresentarMensagemSucesso == true" class="d-flex w-100 justify-content-between" style="float: right; margin-top: -100px;">
+                    <h5 class="mb-1"></h5>
+                    <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header">
+                            <strong class="me-auto">KEYOSEF</strong>
+                            <small></small>
+                            <button type="button" class="btn-close ms-2 mb-1" data-bs-dismiss="toast" aria-label="Close">
+                                <span aria-hidden="true"></span>
+                            </button>
+                        </div>
+                        <div class="toast-body">
+                            <h6>Pessoa Cadastrada com Sucesso!</h6>
+                        </div>
+                    </div>
+                </div>
 
                 <legend class="card-header text-center">
                     Cadastro de Pessoas
@@ -16,29 +32,26 @@
 
                 <div class="row">
                     <div class="form-group col-md-4">
-                        <label for="" class="form-label mt-4">Nome Completo</label>
-                        <input type="text" placeholder="Nome Completo" class="form-control" />
+                        <label for="nome" class="form-label mt-4">Nome Completo</label>
+                        <input type="text" formControlName="nome" placeholder="Nome Completo" class="form-control" />
                     </div>
 
                     <div class="form-group col-md-4">
-                        <label for="exampleSelect1" class="form-label mt-4">Categoria da Pessoa</label>
-                        <select class="form-select" id="exampleSelect1">
-                            <option>Selecione</option>
-                            <option>Pessoa Física</option>
-                            <option>Pessoa Jurídica</option>
+                        <label for="categoria" class="form-label mt-4">Categoria da Pessoa</label>
+                        <select formControlName="categoria" class="form-select">
+                            <option [disabled]="true">Selecione</option>
+                            <option *ngFor="let item of categoriaPessoaList" [value]="item.codigo"> {{item.descricao}} </option>
                         </select>
                     </div>
 
                     <div class="form-group col-md-4">
                         <label for="exampleSelect1" class="form-label mt-4">Instituição Financeira</label>
                         <div class="form-check">
-                            <label class="form-check-label" style="margin-right: 180px;">
-                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" />
-                                Sim
+                            <label for="isInstituicaoFinanceira" class="form-check-label" style="margin-right: 180px;">
+                                <input type="radio" formControlName="isInstituicaoFinanceira" class="form-check-input" value="true" /> Sim
                             </label>
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2" checked="" />
-                                Não
+                            <label for="isInstituicaoFinanceira" class="form-check-label">
+                                <input type="radio" formControlName="isInstituicaoFinanceira" class="form-check-input" value="false" checked="" /> Não
                             </label>
                         </div>
                     </div>
@@ -47,16 +60,14 @@
 
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label for="" class="form-label mt-4">Localização</label>
-                        <input type="text" placeholder="Nome Completo" class="form-control" />
+                        <label for="localizacao" class="form-label mt-4">Localização</label>
+                        <input type="text" formControlName="localizacao" placeholder="Nome Completo" class="form-control" />
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="exampleSelect1" class="form-label mt-4">Papel da Pessoa</label>
-                        <select class="form-select" id="exampleSelect1">
-                            <option>Selecione</option>
-                            <option>Administrador Financeiro</option>
-                            <option>Devedor de Empréstimos</option>
-                            <option>Favorecido</option>
+                        <label for="papel" class="form-label mt-4">Papel da Pessoa</label>
+                        <select formControlName="papel" class="form-select">
+                            <option [disabled]="true">Selecione</option>
+                            <option *ngFor="let item of papelPessoaList" [value]="item.codigo"> {{item.descricao}} </option>
                         </select>
                     </div>
                 </div>
@@ -64,17 +75,17 @@
                 <div class="row">
                     <div class="form-group col-md-12">
                         <div class="form-group">
-                            <label for="formFile" class="form-label mt-4">Imagem</label>
-                            <input class="form-control" type="file" id="formFile">
+                            <label for="imagem" class="form-label mt-4">Imagem</label>
+                            <input type="file" formControlName="imagem" class="form-control">
                         </div>
                     </div>
                 </div>
 
             </fieldset>
-        </form>
-    </div>
-    <div class="footer text-center card-header">
-        <button type="button" class="btn btn-primary col-md-9" style="margin: 4px;">Cadastrar</button>
-        <button type="button" routerLink="/gerenciador-pessoa" class="btn btn-danger btn-border col-md-2">Cancelar</button>
-    </div>
+        </div>
+        <div class="footer text-center card-header">
+            <button type="submit" class="btn btn-primary col-md-9" style="margin: 4px;">Cadastrar</button>
+            <button type="button" routerLink="/gerenciador-pessoa" class="btn btn-danger btn-border col-md-2">Cancelar</button>
+        </div>
+    </form>
 </div>
