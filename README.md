@@ -1,7 +1,7 @@
 # KEYOSEFWEB
 
-> -- Dependencias
+### Dependencias
 
-        npm install -g @angular/cli@10.0.7
+> npm install -g @angular/cli@10.0.7
 
-        npm install bootstrap jquery @popperjs/core bootswatch
+> npm install bootstrap jquery @popperjs/core bootswatch
