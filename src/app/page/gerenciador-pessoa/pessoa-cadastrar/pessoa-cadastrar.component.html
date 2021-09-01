@@ -1,0 +1,80 @@
+<div class="card mb-3">
+    <div class="card-body">
+        <form>
+            <fieldset>
+
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a routerLink="/gerenciador-monitoramento">Monitoramento Financeiro</a>
+                    </li>
+                    <li class="breadcrumb-item"><a routerLink="/gerenciador-pessoa">Gerenciador de Pessoas</a></li>
+                    <li class="breadcrumb-item active">Cadastro de Pessoas</li>
+                </ol>
+
+                <legend class="card-header text-center">
+                    Cadastro de Pessoas
+                </legend>
+
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="" class="form-label mt-4">Nome Completo</label>
+                        <input type="text" placeholder="Nome Completo" class="form-control" />
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="exampleSelect1" class="form-label mt-4">Categoria da Pessoa</label>
+                        <select class="form-select" id="exampleSelect1">
+                            <option>Selecione</option>
+                            <option>Pessoa Física</option>
+                            <option>Pessoa Jurídica</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="exampleSelect1" class="form-label mt-4">Instituição Financeira</label>
+                        <div class="form-check">
+                            <label class="form-check-label" style="margin-right: 180px;">
+                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" />
+                                Sim
+                            </label>
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2" checked="" />
+                                Não
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="" class="form-label mt-4">Localização</label>
+                        <input type="text" placeholder="Nome Completo" class="form-control" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleSelect1" class="form-label mt-4">Papel da Pessoa</label>
+                        <select class="form-select" id="exampleSelect1">
+                            <option>Selecione</option>
+                            <option>Administrador Financeiro</option>
+                            <option>Devedor de Empréstimos</option>
+                            <option>Favorecido</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <div class="form-group">
+                            <label for="formFile" class="form-label mt-4">Imagem</label>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+    <div class="footer text-center card-header">
+        <button type="button" class="btn btn-primary col-md-9" style="margin: 4px;">Cadastrar</button>
+        <button type="button" routerLink="/gerenciador-pessoa" class="btn btn-danger btn-border col-md-2">Cancelar</button>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+.formatar-card {
+    border-radius: 0;
+    padding: 20px;
+    margin-bottom: 28px;
+    box-shadow: 0 0 0 1px rgba(61,70,79,.05), 0 1px 3px 0 rgba(61,70,79,.15);
+}
+
+.card-movimentacao {
+    margin-top: -50px;
+}
