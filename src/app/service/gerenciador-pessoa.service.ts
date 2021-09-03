@@ -23,6 +23,10 @@ export class GerenciadorPessoaService {
     return this.httpClient.get<any[]>(`${this.URL_API}`);
   }
 
+  public findOne(pessoaID: number) : Observable<PessoaModel> {
+    return this.httpClient.get<PessoaModel>(`${this.URL_API}/${pessoaID}`);
+  }
+
   public delete(pessoaID: number) : Observable<Object> {
     return this.httpClient.delete(`${this.URL_API}/${pessoaID}`);
   }

@@ -9,6 +9,7 @@ import { GerenciadorMonitoramentoComponent } from './page/gerenciador-monitorame
 import { GerenciadorPessoaComponent } from './page/gerenciador-pessoa/gerenciador-pessoa.component';
 import { PessoaCadastrarComponent } from './page/gerenciador-pessoa/pessoa-cadastrar/pessoa-cadastrar.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PessoaEditarComponent } from './page/gerenciador-pessoa/pessoa-editar/pessoa-editar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     GerenciadorMonitoramentoComponent,
     GerenciadorPessoaComponent,
-    PessoaCadastrarComponent
+    PessoaCadastrarComponent,
+    PessoaEditarComponent
   ],
   imports: [
     BrowserModule,

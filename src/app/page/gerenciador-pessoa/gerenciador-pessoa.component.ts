@@ -1,5 +1,6 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PessoaModel } from 'src/app/model/pessoa-model';
 import { GerenciadorPessoaService } from 'src/app/service/gerenciador-pessoa.service';
 
@@ -13,7 +14,8 @@ export class GerenciadorPessoaComponent implements OnInit {
   public pessoaList: PessoaModel[] = new Array();
 
   constructor(
-    private gerenciadorPessoaService: GerenciadorPessoaService
+    private gerenciadorPessoaService: GerenciadorPessoaService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -35,8 +37,8 @@ export class GerenciadorPessoaComponent implements OnInit {
     });
   }
 
-  public onEdit(pessoaID: number) {
-    console.log("Edit...", pessoaID);
+  public redirecionarPaginaEditarPessoa(pessoaID: number) {
+    this.router.navigate([`pessoa-editar`, pessoaID]);
   }
 
 }
