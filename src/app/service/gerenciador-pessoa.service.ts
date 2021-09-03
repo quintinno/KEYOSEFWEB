@@ -19,4 +19,12 @@ export class GerenciadorPessoaService {
     return this.httpClient.post<PessoaModel>(`${this.URL_API}`, pessoaModel);
   }
 
+  public findAll() : Observable<any[]> {
+    return this.httpClient.get<any[]>(`${this.URL_API}`);
+  }
+
+  public delete(pessoaID: number) : Observable<Object> {
+    return this.httpClient.delete(`${this.URL_API}/${pessoaID}`);
+  }
+
 }
